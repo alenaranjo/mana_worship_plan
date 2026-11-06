@@ -146,14 +146,9 @@
                         <i class="fa-solid fa-xmark"></i> Limpiar
                     </button>
 
-                    <!-- Add Plan Button -->
-                    <button onclick="openModal()" class="px-4 py-2 bg-gradient-to-r from-accentViolet to-purple-600 hover:from-purple-600 hover:to-accentViolet text-white text-sm font-semibold rounded-xl shadow-lg shadow-purple-900/30 transition flex items-center gap-2">
-                        <i class="fa-solid fa-plus"></i> Nuevo Plan
-                    </button>
-
                     <!-- Print Button -->
-                    <button onclick="window.print()" class="px-3 py-2 bg-cardBg hover:bg-cardBgHover text-gray-300 border border-cardBorder text-sm rounded-xl transition flex items-center gap-2">
-                        <i class="fa-solid fa-print"></i> Imprimir
+                    <button onclick="window.print()" class="px-4 py-2 bg-gradient-to-r from-accentViolet to-purple-600 hover:from-purple-600 hover:to-accentViolet text-white text-sm font-semibold rounded-xl shadow-lg shadow-purple-900/30 transition flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i> Imprimir Plan
                     </button>
                 </div>
             </div>
@@ -209,105 +204,6 @@
         </div>
 
     </main>
-
-    <!-- EDIT / CREATE MODAL -->
-    <div id="planModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-cardBg border border-cardBorder rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl p-6">
-            <div class="flex items-center justify-between border-b border-cardBorder pb-4 mb-4">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2" id="modalTitle">
-                    <i class="fa-solid fa-calendar-plus text-accentPurple"></i> Nuevo Plan de Servicio
-                </h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-
-            <form id="planForm" onsubmit="handleSavePlan(event)" class="space-y-4 text-sm">
-                <input type="hidden" id="planIndex" value="-1">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-400 mb-1">Título de Fecha / Semana</label>
-                        <input type="text" id="formTitle" required placeholder="Ej: JUEVES 5" class="w-full px-3 py-2 bg-[#0d0f17] border border-cardBorder rounded-lg text-white focus:outline-none focus:border-accentPurple">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-400 mb-1">Categoría / Tipo de Servicio</label>
-                        <input type="text" id="formCategory" placeholder="Ej: NOCHES DEL ESPÍRITU SANTO" class="w-full px-3 py-2 bg-[#0d0f17] border border-cardBorder rounded-lg text-white focus:outline-none focus:border-accentPurple">
-                    </div>
-                </div>
-
-                <!-- Vocals section input -->
-                <div class="border border-cardBorder/60 p-3 rounded-xl bg-[#0b0d14]">
-                    <label class="block text-xs font-bold text-purple-300 mb-2 uppercase">Voces & Canciones</label>
-                    <div id="formVocalsContainer" class="space-y-2">
-                        <!-- Rows dynamically added -->
-                    </div>
-                    <button type="button" onclick="addVocalRow()" class="mt-2 text-xs text-accentGlow hover:underline flex items-center gap-1">
-                        <i class="fa-solid fa-plus"></i> Agregar Voz
-                    </button>
-                </div>
-
-                <!-- Coros -->
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 mb-1">Coros (Separados por coma)</label>
-                    <input type="text" id="formCoros" placeholder="Ej: Rocío, Dina" class="w-full px-3 py-2 bg-[#0d0f17] border border-cardBorder rounded-lg text-white">
-                </div>
-
-                <!-- Banda -->
-                <div class="border border-cardBorder/60 p-3 rounded-xl bg-[#0b0d14]">
-                    <label class="block text-xs font-bold text-cyan-400 mb-2 uppercase">Integrantes de la Banda</label>
-                    <div class="grid grid-cols-2 gap-3 text-xs">
-                        <div>
-                            <span class="text-gray-400">🥁 Drums:</span>
-                            <input type="text" id="bandDrums" class="w-full px-2 py-1 bg-[#0d0f17] border border-cardBorder rounded text-white mt-1">
-                        </div>
-                        <div>
-                            <span class="text-gray-400">🎹 Piano:</span>
-                            <input type="text" id="bandPiano" class="w-full px-2 py-1 bg-[#0d0f17] border border-cardBorder rounded text-white mt-1">
-                        </div>
-                        <div>
-                            <span class="text-gray-400">🎸 Bajo:</span>
-                            <input type="text" id="bandBass" class="w-full px-2 py-1 bg-[#0d0f17] border border-cardBorder rounded text-white mt-1">
-                        </div>
-                        <div>
-                            <span class="text-gray-400">🎸 Guitarra Acústica (AG):</span>
-                            <input type="text" id="bandAG" class="w-full px-2 py-1 bg-[#0d0f17] border border-cardBorder rounded text-white mt-1">
-                        </div>
-                        <div>
-                            <span class="text-gray-400">🎸 Guitarra Eléctrica (EG):</span>
-                            <input type="text" id="bandEG" class="w-full px-2 py-1 bg-[#0d0f17] border border-cardBorder rounded text-white mt-1">
-                        </div>
-                        <div>
-                            <span class="text-gray-400">🎻 Violín:</span>
-                            <input type="text" id="bandViolin" class="w-full px-2 py-1 bg-[#0d0f17] border border-cardBorder rounded text-white mt-1">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Technical & Details -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-400 mb-1">Talk Back</label>
-                        <input type="text" id="formTalkback" placeholder="Ej: Kim" class="w-full px-3 py-2 bg-[#0d0f17] border border-cardBorder rounded-lg text-white">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-400 mb-1">Multitracks</label>
-                        <input type="text" id="formMultitracks" placeholder="Ej: Fabio" class="w-full px-3 py-2 bg-[#0d0f17] border border-cardBorder rounded-lg text-white">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-400 mb-1">Canción de Ofrendas</label>
-                        <input type="text" id="formOfrendas" placeholder="Ej: Sing Out Ron Kenoly" class="w-full px-3 py-2 bg-[#0d0f17] border border-cardBorder rounded-lg text-white">
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="flex justify-end gap-2 pt-4 border-t border-cardBorder">
-                    <button type="button" onclick="closeModal()" class="px-4 py-2 bg-cardBorder text-gray-300 rounded-xl hover:bg-gray-700 transition">Cancelar</button>
-                    <button type="submit" class="px-5 py-2 bg-accentViolet hover:bg-purple-600 text-white font-semibold rounded-xl transition shadow-lg">Guardar Plan</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!-- INITIALIZATION & APP LOGIC -->
     <script>
@@ -499,9 +395,29 @@
             }
         ];
 
-        // State Management
-        let plans = [...initialPlansData];
+        // State Management with LocalStorage Support
+        let plans = loadStoredPlans();
         let currentFilterMember = "";
+
+        function loadStoredPlans() {
+            try {
+                const stored = localStorage.getItem('mana_worship_plans_v1');
+                if (stored) {
+                    return JSON.parse(stored);
+                }
+            } catch (e) {
+                console.error("Error loading from localStorage", e);
+            }
+            return [...initialPlansData];
+        }
+
+        function savePlansToStorage() {
+            try {
+                localStorage.setItem('mana_worship_plans_v1', JSON.stringify(plans));
+            } catch (e) {
+                console.error("Error saving to localStorage", e);
+            }
+        }
 
         // Normalize string for searching (ignores accents, case)
         function normalizeStr(str) {
@@ -517,7 +433,6 @@
                 // Vocals
                 plan.vocals.forEach(v => {
                     if (v.singer) {
-                        // Handle multiple names if any (e.g., "Valentina y Uriel")
                         v.singer.split(/ y | & |,/i).forEach(name => {
                             if(name.trim()) membersSet.add(name.trim());
                         });
@@ -554,7 +469,6 @@
             const select = document.getElementById('memberFilter');
             const members = getAllUniqueMembers();
             
-            // Keep first option
             select.innerHTML = '<option value="">🔍 Filtrar por Miembro...</option>';
             
             members.forEach(m => {
@@ -586,26 +500,20 @@
                 let hasMemberInPlan = false;
 
                 if (isFiltering) {
-                    // Check if member in vocals
                     const inVocals = plan.vocals.some(v => isMemberInText(v.singer, currentFilterMember));
-                    // Check coros
                     const inCoros = plan.coros.some(c => isMemberInText(c, currentFilterMember));
-                    // Check band
                     const inBand = Object.values(plan.band).some(b => isMemberInText(b, currentFilterMember));
-                    // Check tech
                     const inTech = isMemberInText(plan.talkback, currentFilterMember) || isMemberInText(plan.multitracks, currentFilterMember);
 
                     hasMemberInPlan = inVocals || inCoros || inBand || inTech;
                     if (hasMemberInPlan) matchedCardsCount++;
                 }
 
-                // Create Card Element
                 const card = document.createElement('div');
                 card.className = `glass-card rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between border ${
                     isFiltering ? (hasMemberInPlan ? 'highlight-card' : 'dim-card') : 'hover:border-purple-500/40'
                 }`;
 
-                // Vocals list HTML
                 let vocalsHtml = plan.vocals.map(v => {
                     const isMatched = isFiltering && isMemberInText(v.singer, currentFilterMember);
                     if (isMatched) totalRolesForFilter++;
@@ -622,7 +530,6 @@
                     `;
                 }).join('');
 
-                // Coros HTML
                 const corosListHtml = plan.coros.map(c => {
                     const isMatched = isFiltering && isMemberInText(c, currentFilterMember);
                     if (isMatched) totalRolesForFilter++;
@@ -631,7 +538,6 @@
                     }">${c}</span>`;
                 }).join(' ');
 
-                // Helper for Band Items
                 const renderBandRow = (icon, label, value) => {
                     if (!value) return '';
                     const isMatched = isFiltering && isMemberInText(value, currentFilterMember);
@@ -648,7 +554,6 @@
                     `;
                 };
 
-                // Tech highlight checks
                 const isTbMatch = isFiltering && isMemberInText(plan.talkback, currentFilterMember);
                 const isMtMatch = isFiltering && isMemberInText(plan.multitracks, currentFilterMember);
                 if (isTbMatch) totalRolesForFilter++;
@@ -666,17 +571,15 @@
                                     ${plan.title}
                                 </h3>
                             </div>
-                            <div class="no-print flex items-center gap-1">
-                                <button onclick="editPlan(${planIdx})" class="p-2 text-gray-400 hover:text-purple-300 transition rounded-lg hover:bg-cardBorder/50" title="Editar">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </button>
+                        </div>
+
+                        <!-- VOCALS TABLE (Matching Ref 2) -->
                                 <button onclick="deletePlan(${planIdx})" class="p-2 text-gray-400 hover:text-red-400 transition rounded-lg hover:bg-cardBorder/50" title="Eliminar">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- VOCALS TABLE (Matching Ref 2) -->
                         <div class="mb-5">
                             <div class="flex items-center justify-between text-xs uppercase font-bold text-gray-400 tracking-wider mb-2 border-b border-cardBorder pb-1">
                                 <span>VOCAL</span>
@@ -689,7 +592,6 @@
                             </table>
                         </div>
 
-                        <!-- COROS SECTION -->
                         ${plan.coros.length > 0 ? `
                             <div class="mb-5 bg-[#0e111d] p-3 rounded-xl border border-cardBorder/50">
                                 <span class="text-xs font-bold text-purple-400 tracking-wider uppercase block mb-1.5">COROS</span>
@@ -699,7 +601,6 @@
                             </div>
                         ` : ''}
 
-                        <!-- BANDA SECTION -->
                         <div class="mb-5 bg-[#0e111d] p-3.5 rounded-xl border border-cardBorder/50">
                             <span class="text-xs font-bold text-cyan-400 tracking-wider uppercase block mb-2">BANDA</span>
                             <div class="space-y-0.5">
@@ -713,7 +614,6 @@
                         </div>
                     </div>
 
-                    <!-- FOOTER: TALKBACK, MULTITRACKS & OFRENDAS -->
                     <div class="pt-3 border-t border-cardBorder/60 space-y-2 text-xs">
                         <div class="grid grid-cols-2 gap-2 bg-slate-900/40 p-2.5 rounded-lg border border-cardBorder/30">
                             <div>
@@ -742,7 +642,6 @@
                 container.appendChild(card);
             });
 
-            // Update stats
             document.getElementById('totalServicesCount').textContent = `${plans.length} Servicios`;
             
             const filterBanner = document.getElementById('filterBanner');
@@ -775,126 +674,6 @@
             currentFilterMember = "";
             document.getElementById('clearBtn').classList.add('hidden');
             renderPlans();
-        }
-
-        // MODAL & EDITING FUNCTIONS
-        function openModal(editIndex = -1) {
-            const modal = document.getElementById('planModal');
-            const form = document.getElementById('planForm');
-            const title = document.getElementById('modalTitle');
-            const vocalsContainer = document.getElementById('formVocalsContainer');
-            
-            vocalsContainer.innerHTML = '';
-            document.getElementById('planIndex').value = editIndex;
-
-            if (editIndex >= 0) {
-                const plan = plans[editIndex];
-                title.innerHTML = '<i class="fa-solid fa-pen-to-square text-accentPurple"></i> Editar Plan de Servicio';
-                document.getElementById('formTitle').value = plan.title;
-                document.getElementById('formCategory').value = plan.subtitle || '';
-                document.getElementById('formCoros').value = plan.coros.join(', ');
-                
-                document.getElementById('bandDrums').value = plan.band.drums || '';
-                document.getElementById('bandPiano').value = plan.band.piano || '';
-                document.getElementById('bandBass').value = plan.band.bass || '';
-                document.getElementById('bandAG').value = plan.band.ag || '';
-                document.getElementById('bandEG').value = plan.band.eg || '';
-                document.getElementById('bandViolin').value = plan.band.violin || '';
-
-                document.getElementById('formTalkback').value = plan.talkback || '';
-                document.getElementById('formMultitracks').value = plan.multitracks || '';
-                document.getElementById('formOfrendas').value = plan.ofrendas || '';
-
-                plan.vocals.forEach(v => addVocalRow(v.singer, v.song));
-            } else {
-                title.innerHTML = '<i class="fa-solid fa-calendar-plus text-accentPurple"></i> Nuevo Plan de Servicio';
-                form.reset();
-                addVocalRow();
-                addVocalRow();
-            }
-
-            modal.classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('planModal').classList.add('hidden');
-        }
-
-        function addVocalRow(singer = '', song = '') {
-            const container = document.getElementById('formVocalsContainer');
-            const div = document.createElement('div');
-            div.className = 'flex items-center gap-2';
-            div.innerHTML = `
-                <input type="text" placeholder="Cantante" value="${singer}" class="vocal-singer w-1/3 px-2.5 py-1.5 bg-[#0d0f17] border border-cardBorder rounded text-white text-xs">
-                <input type="text" placeholder="Canción asignada" value="${song}" class="vocal-song w-2/3 px-2.5 py-1.5 bg-[#0d0f17] border border-cardBorder rounded text-white text-xs">
-                <button type="button" onclick="this.parentElement.remove()" class="text-red-400 hover:text-red-300 p-1">
-                    <i class="fa-solid fa-times"></i>
-                </button>
-            `;
-            container.appendChild(div);
-        }
-
-        function handleSavePlan(event) {
-            event.preventDefault();
-            
-            const index = parseInt(document.getElementById('planIndex').value);
-            
-            // Gather vocals
-            const singerInputs = document.querySelectorAll('.vocal-singer');
-            const songInputs = document.querySelectorAll('.vocal-song');
-            const vocals = [];
-            singerInputs.forEach((input, idx) => {
-                const s = input.value.trim();
-                const song = songInputs[idx].value.trim();
-                if (s || song) {
-                    vocals.push({ singer: s, song: song });
-                }
-            });
-
-            // Gather Coros
-            const corosRaw = document.getElementById('formCoros').value;
-            const coros = corosRaw.split(',').map(c => c.trim()).filter(c => c.length > 0);
-
-            const newPlan = {
-                id: index >= 0 ? plans[index].id : 'plan-' + Date.now(),
-                title: document.getElementById('formTitle').value.trim(),
-                subtitle: document.getElementById('formCategory').value.trim(),
-                vocals: vocals,
-                coros: coros,
-                band: {
-                    drums: document.getElementById('bandDrums').value.trim(),
-                    piano: document.getElementById('bandPiano').value.trim(),
-                    bass: document.getElementById('bandBass').value.trim(),
-                    ag: document.getElementById('bandAG').value.trim(),
-                    eg: document.getElementById('bandEG').value.trim(),
-                    violin: document.getElementById('bandViolin').value.trim(),
-                },
-                talkback: document.getElementById('formTalkback').value.trim(),
-                multitracks: document.getElementById('formMultitracks').value.trim(),
-                ofrendas: document.getElementById('formOfrendas').value.trim()
-            };
-
-            if (index >= 0) {
-                plans[index] = newPlan;
-            } else {
-                plans.push(newPlan);
-            }
-
-            closeModal();
-            populateMemberDropdown();
-            renderPlans();
-        }
-
-        function editPlan(index) {
-            openModal(index);
-        }
-
-        function deletePlan(index) {
-            if (confirm(`¿Estás seguro de que deseas eliminar el plan "${plans[index].title}"?`)) {
-                plans.splice(index, 1);
-                populateMemberDropdown();
-                renderPlans();
-            }
         }
 
         // App Initialization
